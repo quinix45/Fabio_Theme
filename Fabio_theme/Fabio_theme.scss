@@ -1,0 +1,349 @@
+//// MAIN VARIABLES ////
+
+// main font family
+$font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+
+// headings font family
+$font-family-heading: "Arial", sans-serif;
+
+// weight of font heading (thickness)
+$presentation-heading-font-weight: 80 !important;
+
+//font size fo text
+$presentation-font-size-root: 1.6em;
+
+// font size for level 2 headings (defined with "##")
+$presentation-h2-font-size: 1.8em !default;
+
+// default theme color
+$theme-color: #1c74d8; 
+
+// some example colors
+
+// c("#458B00", "#DEB887", "#6495ED")
+
+// default background color
+$body-bg: #ffffff;
+
+// default text color
+$body-color: black;
+
+// default link color
+$link-color: $theme-color;
+
+//defualt selection color 
+$selection-bg: lighten($theme-color, 15%);
+
+/*-- scss:rules --*/
+
+// author
+
+
+
+.quarto-title-author {
+  font-family: $font-family-sans-serif;
+  font-size: 1.5em !important;
+  font-weight: 500 !important;
+}
+
+
+// date
+.date {
+  font-family: $font-family-sans-serif;
+  font-size: 1.3em !important;
+  font-weight: 500 !important;
+}
+
+// footer
+.reveal .footer {
+  font-family: $font-family-sans-serif;
+  font-size: .6em !important;
+  font-weight: 600 !important;
+  color: $body-bg;
+}
+
+.aside-footnotes{
+  font-size: calc($presentation-font-size-root/2)
+}
+
+// slide number
+
+.reveal .slide-number {
+  font-family: $font-family-sans-serif;
+  font-size: .7em !important;
+  color: $body-bg;
+  font-weight: 600 !important;
+}
+
+
+// headings
+
+.reveal .slides h2,{
+  margin: 0 0 20px 0;
+  color: $theme-color;
+  font-family: "League Gothic", Impact, sans-serif;
+  line-height: 0.9em;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  text-shadow: none;
+}
+
+// title
+.reveal .slides h1 {
+  font-size: 2.7em;
+  color: black;
+  font-family: $font-family-sans-serif;
+  line-height: 1em;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  font-weight: 550;
+  text-shadow: none;
+}
+
+
+// Bold color
+b,
+strong {
+  color: $theme-color;
+}
+
+// bullet points
+
+ul li::marker {
+  color: $theme-color;
+  content: "➣ ";
+}
+
+ol li::marker {
+  color: $theme-color;
+}
+
+// custom footer 
+
+.slide-background:not(:first-child)::after {
+  display: block;
+  transform: skew(340deg);
+  content: '';
+  /* Empty content for the pseudo-element */
+  position: fixed;
+  /* Positioning the square absolutely within .slide-background */
+  bottom: -10%;
+  /* Position from the top */
+  left: 15%;
+  /* Position from the left */
+  width: 100%;
+  /* Make the line span the full width */
+  height: 16.5%;
+  /* Height of the decorative element */
+  max-height: 9rem;
+  min-height: 3rem;
+  background-color: lighten($theme-color, 15%);
+  /* Lightened blue background */
+  border: 2.5px solid $theme-color;
+  z-index: -1;
+}
+
+
+// classes to assign to SVGs added through JS
+
+.decoration{
+  fill: $theme-color;
+  stroke: lighten($theme-color, 15%);
+  background-color: lighten($theme-color, 15%);
+}
+
+.title-separator{
+  fill: $theme-color;
+  stroke: $theme-color;
+  width: 100%;
+  stroke-width: 3;
+}
+
+.decoration-container {   
+  box-sizing: border-box;  
+  width: 100vw; 
+  height: 100vh; 
+  position: fixed;
+  overflow: visible;
+  background-color: transparent; 
+  top:0; 
+  left: 0; 
+  bottom: 0;
+  right: 0;
+}
+
+// Zoome menu
+
+/* Basic styles for the context menu */
+.custom-menu {
+  position: absolute;
+  display: none; /* Hidden by default */
+  background-color: $body-bg;
+  border: 1px solid darken($body-bg, 15%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 150px; /* Adjust based on your needs */
+  overflow-y: auto; /* Scrollable when content overflows */
+  z-index: 9999; /* Ensure it appears above other content */
+}
+
+.custom-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #8a0909;
+  border-bottom: 1px solid #eee;
+}
+
+.custom-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+
+.image {
+  cursor: pointer; /* Change this to whatever cursor style you prefer */
+}
+
+
+// Zoom Animations
+
+
+.zoom1xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Ensure the width is automatic to preserve original dimensions */
+  height: auto; /* Ensure the height is automatic to preserve original dimensions */
+  border-radius: 10%;
+  background-color: $body-bg; 
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+.zoom1_25xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(1.25);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+  background-color: $body-bg;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom1_5xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(1.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+  background-color: $body-bg;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom1_75xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(1.75);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+  background-color: $body-bg;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom2xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+  background-color: $body-bg;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom2_5xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(2.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+  background-color: $body-bg;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom3xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: $body-bg;
+  border-radius: 10%;
+  z-index: 99999;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+}
+
+.zoom4xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(4);
+  position: fixed;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+  top: 50%;
+  left: 50%;
+  background-color: $body-bg;
+  border-radius: 10%;
+  z-index: 99999;
+}
+
+.zoom6xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(6);
+  position: fixed;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+  top: 50%;
+  left: 50%;
+  background-color: $body-bg;
+  border-radius: 10%;
+  z-index: 99999;
+}
+
+.zoom8xJS-active {
+  transition: transform .3s;
+  transform: translate(-50%, -50%) scale(8);
+  position: fixed;
+  padding: 3px;
+  border: solid 1px;
+  border-color: lighten($theme-color, 15%);
+  top: 50%;
+  left: 50%;
+  background-color: $body-bg;
+  border-radius: 10%;
+  z-index: 99999;
+}

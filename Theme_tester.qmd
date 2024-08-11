@@ -1,0 +1,157 @@
+---
+title: "Fabio Theme Demo"
+author: "Fabio Setti"
+institute: "Fordham University"
+date: today
+title-slide-attributes:
+  data-transition: "zoom"
+format:
+   revealjs:
+      footer: "Fabio Theme Demo"
+      width: 100%
+      height: 100%
+      chalkboard: true
+      slide-number: c/t 
+      theme: Fabio_theme/Fabio_theme.scss
+      navigation-mode: linear
+      controls: false
+      auto-stretch: false
+      header-includes:
+        - <script src="Fabio_theme/Fabio_theme.js"></script>
+
+   
+editor: source
+---
+
+## Original Quarto Reveal Demo
+
+Original demo for a Quarto Reveal presentation: [https://quarto.org/docs/presentations/revealjs/demo/#/title-slide](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide){target="blank"}
+
+</br>
+
+The current theme adds some useful features implemented with much help from 
+[ChatGPT](https://chatgpt.com){target="blank"} (I am no web developer 🤷)
+
+</br>
+
+I also plan on adding more and more features as the need presents itself! Or, if you have any suggestions, let me know here: 
+
+
+## Changing the Theme Color
+
+The minimalist style of the theme is intended to accommodate multiple theme colors. The theme color can be easily modified:
+
+:::{layout-ncol="2"}
+
+:::col
+
+<center>
+
+Open the **Fabio_theme.scss** file.
+
+&#8595;
+
+Find and edit the value of the **$theme-color:** variable with the desired theme color. Save. 
+
+&#8595;
+
+Render .qmd file. 
+
+</center>
+
+
+**Note:** other global variables such as font and font size can also be changed in the same way.
+
+:::
+
+:::col
+
+<center>
+
+Demonstration of how to modify theme color:
+
+</br>
+
+
+<iframe src="Fabio_theme/theme_videos/Changing_theme_colo.mp4" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+</center>
+
+:::
+:::
+
+
+
+## Zoomable Images  
+
+Tired of hearing that your figures are too small to read?? Custom JS zoom options for figures on **left-click**! To reset to original position, **right-click** on image.
+
+
+:::{layout-ncol="2"}
+
+:::col
+
+![](Fabio_theme/theme_images/avg_plot.png){width="20%"}     
+:::
+
+
+:::col
+
+**Note:** Using .absolute to position images will interfere with the zoom feature. If zoom function is needed, I recommend creating an absolutely position div and place the image inside it like so:
+
+</br>
+</br>
+
+```html
+<div style="position: absolute; top:60%; left:50%;">
+![](Fabio_theme/theme_images/avg_plot.png){width="30%"}
+</div>
+```
+
+:::
+
+:::
+
+![](Fabio_theme/theme_images/avg_plot.png){width="20%"} 
+
+<!-- to absolutely set images without interfering with zoom option -->
+
+<div style="position: absolute; top:60%; left:50%;">
+![](Fabio_theme/theme_images/avg_plot.png){width="30%"}
+</div>
+
+## Drag Images After Zoom
+
+Add the **.draggable** class to an image to be allowed to move the image after zoom. Useful if the presenter wants to present 2 images side by side!
+
+```html
+![](Fabio_theme/theme_images/avg_plot.png){width="40%" .draggable} 
+```
+
+
+
+:::{layout-ncol="2"}
+
+:::col
+
+![](Fabio_theme/theme_images/avg_plot.png){width="40%" .draggable} 
+
+
+![](Fabio_theme/theme_images/avg_plot.png){width="40%" .draggable} 
+
+:::
+
+
+:::col
+
+Result after manually dragging the two images side by side:
+
+![](Fabio_theme/theme_images/side_by_side_drag.png)
+
+:::
+:::
+
+
+# If I think of Some Other Useful Features, I will Add them 👋
+
+
