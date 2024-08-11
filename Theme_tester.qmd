@@ -68,12 +68,11 @@ Render .qmd file.
 
 <center>
 
-Demonstration of how to modify theme color:
+A video of how to change the theme color can be found at the following link:
 
 </br>
 
-
-<iframe src="Fabio_theme/theme_videos/Changing_theme_colo.mp4" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+[https://youtu.be/_gTuedSeh5o](https://youtu.be/_gTuedSeh5o){target="blank"}
 
 </center>
 
