@@ -10,10 +10,10 @@ $font-family-heading: "Arial", sans-serif;
 $presentation-heading-font-weight: 80 !important;
 
 //font size fo text
-$presentation-font-size-root: 1.2em;
+$presentation-font-size-root: 2.1em;
 
 // font size for level 2 headings (defined with "##")
-$presentation-h2-font-size: 1.7em !default;
+$presentation-h2-font-size: 2.4em !default;
 
 // default theme color
 $theme-color: #1c74d8; 
@@ -79,7 +79,7 @@ $selection-bg: lighten($theme-color, 15%);
 // headings
 
 .reveal .slides h2,{
-  margin: 0 0 20px 0;
+  margin: 0 0 40px 0;
   color: $theme-color;
   font-family: "League Gothic", Impact, sans-serif;
   line-height: 0.9em;

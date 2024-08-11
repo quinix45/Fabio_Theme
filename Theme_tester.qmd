@@ -8,8 +8,8 @@ title-slide-attributes:
 format:
    revealjs:
       footer: "Fabio Theme Demo"
-      width: 100%
-      height: 100%
+      width: 1920
+      height: 1080
       chalkboard: true
       slide-number: c/t 
       theme: Fabio_theme/Fabio_theme.scss
