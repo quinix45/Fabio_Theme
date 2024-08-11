@@ -99,7 +99,6 @@ Tired of hearing that your figures are too small to read?? Custom JS zoom option
 **Note:** Using .absolute to position images will interfere with the zoom feature. If zoom function is needed, I recommend creating an absolutely position div and place the image inside it like so:
 
 </br>
-</br>
 
 ```html
 <div style="position: absolute; top:60%; left:50%;">
