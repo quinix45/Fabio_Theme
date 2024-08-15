@@ -125,15 +125,15 @@ ol li::marker {
   transform: skew(340deg);
   content: '';
   /* Empty content for the pseudo-element */
-  position: fixed;
+  position: absolute;
   /* Positioning the square absolutely within .slide-background */
-  bottom: -10%;
+  bottom: 0%;
   /* Position from the top */
   left: 15%;
   /* Position from the left */
-  width: 100%;
+  width: 100vw;
   /* Make the line span the full width */
-  height: 16.5%;
+  height: 6vh;
   /* Height of the decorative element */
   max-height: 9rem;
   min-height: 3rem;
