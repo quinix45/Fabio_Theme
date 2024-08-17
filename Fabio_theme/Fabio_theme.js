@@ -1,36 +1,105 @@
-// zoom animation without menu
+// Add separator under title
 
-document.addEventListener('DOMContentLoaded', function () {
-  const zoomClasses = ['zoom1xJS',
-    'zoom1_25xJS',
-    'zoom1_5xJS',
-    'zoom1_75xJS',
-    'zoom2xJS',
-    'zoom2_5xJS',
-    'zoom3xJS',
-    'zoom4xJS'];
+    // SVG content as a string
+    const svgContent = `<svg class="title-separator" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  height="41px" viewBox="-0.5 -0.5 923 41" content="&lt;mxfile&gt;&lt;diagram id=&quot;2TYFnY0_VJDJ40RJej4Q&quot; name=&quot;Page-1&quot;&gt;zZXfb5swEMf/Gl4rfgSiPbZZuj1sUqVM2rODr2DVcMhcCNlfv3NsIIR03SpN6hP2h7uz73t3ECSbqv9iRFN+Rwk6iEPZB8nnII7jMM74YcnJkXWWOlAYJR2KJrBTv8DD0NODktDODAlRk2rmMMe6hpxmTBiDx7nZM+r5qY0oYAF2udBL+lNJKh1dheHEv4IqSn/y2vNKDKYetKWQeLxAyTZINgaR3KrqN6CtdIMqzu/xlbfjtQzU9DcOiXPohD74zPy96DSkCrW8t4rxrsaa4UNJleZdxMuWDL6MEiSWlKKxnlrVL27rEgx5A3p/XndgSLGYjNxxIBdyTxlEoy7cToAVkDmxyXHSPfVqlheSD8yAFqS6eXjhy1+M4cYTnlDxwXHoWzVb+Ti+UVdpOg/R4sHk4L0ulb4KFIXZG5FImAJoEYkXF3lP6FzJ21VN367qUIJvYg/6CVtFCmt+tUcirLgwQqvCgpzrAGZe9cH53tsQNkwbe3Mw2449Wm8pRVuC9OUfWqPqC/tVuGuUjPmOHbR354eNbJ8/TmezvbAJPkh43pEgS3KNLUdzyfEdoP/XpvEO6fqqFomX7KKpshtNNTTDrf6Z1esPxfn0v0fuo49UtBip1ftGKl1M1FWgd08Ub6dvsDOf/mPJ9jc=&lt;/diagram&gt;&lt;/mxfile&gt;">
+        <defs/>
+        <g>
+          <path d="M 501 17 L 981 17 M 981 23 L 501 23 M 921 23" fill="none"  stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
+          <ellipse cx="461" cy="20" rx="12." ry="12.8" fill="rgb(255, 255, 255)"  pointer-events="all"/>
+          <path d="M 431 0 L 461 20 L 431 40 Z M 491 0 L 461 20 L 491 40 Z"  stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
+          <ellipse cx="461" cy="20" rx="12" ry="12.8" fill="rgb(255, 255, 255)"  pointer-events="all"/>
+          <path d="M -60 16 L 421 16 M 421 22 L -60 22 M 421 22" fill="none"  stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
+        </g>
+      </svg>`;
 
-
-
-  const activeClasses = ['zoom1xJS-active',
-    'zoom1_25xJS-active',
-    'zoom1_5xJS-active',
-    'zoom1_75xJS-active',
-    'zoom2xJS-active',
-    'zoom2_5xJS-active',
-    'zoom3xJS-active',
-    'zoom4xJS-active'];
-
-
-  zoomClasses.forEach((zoomClass, index) => {
-    document.querySelectorAll(`.${zoomClass}`).forEach(function (element) {
-      element.addEventListener('click', function () {
-        this.classList.toggle(activeClasses[index])
-
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  appendSVGToTitleElements();
+  function appendSVGToTitleElements() {
+    // Select all elements with the class "title"
+    const titleElements = document.querySelectorAll('.title');
+      
+    // Iterate through each element
+    titleElements.forEach(function(element) {
+      // Create a new div element to contain the SVG
+      const svgWrapper = document.createElement('div');
+      svgWrapper.innerHTML = svgContent;
+  
+      // Append the SVG to the title element
+      element.appendChild(svgWrapper.firstChild);
     });
-  });
+  } 
 });
+
+// first line controls size (left plygon in title)
+const decorationMarkup1 = `<svg id="mySVG" style="transform: scaleX(4.5) scaleY(3); transform-origin: 0 0;">
+<polygon points="129.9038105676658, 74.99999999999999 39.184850993605149,150 -129.90381056766577,1005.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:2;"/>
+</svg>`;
+
+document.addEventListener('DOMContentLoaded', function() {
+  appendSVGToTitleElements();
+  function appendSVGToTitleElements() {
+    // Select all elements with the class "title"
+    const titleElements = document.querySelectorAll('.quarto-title-block');
+      
+    // Iterate through each element
+    titleElements.forEach(function(element) {
+      // Create a new div element to contain the SVG
+      const svgWrapper1 = document.createElement('div');
+      svgWrapper1.innerHTML = decorationMarkup1;
+
+
+      svgWrapper1.style.position = 'absolute';
+      svgWrapper1.style.top = '-135%';  // Adjust as needed
+      svgWrapper1.style.left = '-25%'; // Adjust as needed
+      svgWrapper1.style.width = '0%'; // Full width of the parent
+      svgWrapper1.style.height = '0'; // Full height of the parent
+      svgWrapper1.style.pointerEvents = 'none'; // So it doesn't block interactions
+      svgWrapper1.style.zIndex = '10'; // Ensure it's above other content
+  
+      // Append the SVG to the title element
+      element.append(svgWrapper1);
+    });
+  } 
+});
+
+
+
+
+// first line controls size (left plygon in title)
+const decorationMarkup2 = `<svg id="mySVG" style="transform: scaleX(-4.5) scaleY(3); transform-origin: 0 0;">
+<polygon points="129.9038105676658, 74.99999999999999 39.184850993605149,150 -129.90381056766577,1005.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:2;"/>
+</svg>`
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  appendSVGToTitleElements();
+  function appendSVGToTitleElements() {
+    // Select all elements with the class "title"
+    const titleElements = document.querySelectorAll('.quarto-title-block');
+      
+    // Iterate through each element
+    titleElements.forEach(function(element) {
+      // Create a new div element to contain the SVG
+      const svgWrapper2 = document.createElement('div');
+      svgWrapper2.innerHTML = decorationMarkup2;
+
+
+      svgWrapper2.style.position = 'absolute';
+      svgWrapper2.style.top = '-135%';  // Adjust as needed
+      svgWrapper2.style.left = '125%'; // Adjust as needed
+      svgWrapper2.style.width = '0%'; // Full width of the parent
+      svgWrapper2.style.height = '0'; // Full height of the parent
+      svgWrapper2.style.pointerEvents = 'none'; // So it doesn't block interactions
+      svgWrapper2.style.zIndex = '10'; // Ensure it's above other content
+  
+      // Append the SVG to the title element
+      element.append(svgWrapper2);
+    });
+  } 
+});
+
+
+
 
 
 function onClassChange(element, callback) {
@@ -48,101 +117,9 @@ function onClassChange(element, callback) {
   return observer.disconnect;
 }
 
-const decorationMarkup = `<svg id="mySVG" height="100vh" width="100vw">
-<polygon points="129.9038105676658,74.99999999999999 9.184850993605149e-15,150 -129.90381056766577,75.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:3;"/>
-<polygon points="129.9038105676658,74.99999999999999 9.184850993605149e-15,150 -129.90381056766577,75.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:3;" />
-</svg>`
-
-document.addEventListener('DOMContentLoaded', function() {
-  appendSVGToTitleElements();
-  function appendSVGToTitleElements() {
-    // Select all elements with the class "title"
-    const titleElements = document.querySelectorAll('.title');
-  
-    // SVG content as a string
-    const svgContent = `<svg class="title-separator" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  height="41px" viewBox="-0.5 -0.5 923 41" content="&lt;mxfile&gt;&lt;diagram id=&quot;2TYFnY0_VJDJ40RJej4Q&quot; name=&quot;Page-1&quot;&gt;zZXfb5swEMf/Gl4rfgSiPbZZuj1sUqVM2rODr2DVcMhcCNlfv3NsIIR03SpN6hP2h7uz73t3ECSbqv9iRFN+Rwk6iEPZB8nnII7jMM74YcnJkXWWOlAYJR2KJrBTv8DD0NODktDODAlRk2rmMMe6hpxmTBiDx7nZM+r5qY0oYAF2udBL+lNJKh1dheHEv4IqSn/y2vNKDKYetKWQeLxAyTZINgaR3KrqN6CtdIMqzu/xlbfjtQzU9DcOiXPohD74zPy96DSkCrW8t4rxrsaa4UNJleZdxMuWDL6MEiSWlKKxnlrVL27rEgx5A3p/XndgSLGYjNxxIBdyTxlEoy7cToAVkDmxyXHSPfVqlheSD8yAFqS6eXjhy1+M4cYTnlDxwXHoWzVb+Ti+UVdpOg/R4sHk4L0ulb4KFIXZG5FImAJoEYkXF3lP6FzJ21VN367qUIJvYg/6CVtFCmt+tUcirLgwQqvCgpzrAGZe9cH53tsQNkwbe3Mw2449Wm8pRVuC9OUfWqPqC/tVuGuUjPmOHbR354eNbJ8/TmezvbAJPkh43pEgS3KNLUdzyfEdoP/XpvEO6fqqFomX7KKpshtNNTTDrf6Z1esPxfn0v0fuo49UtBip1ftGKl1M1FWgd08Ub6dvsDOf/mPJ9jc=&lt;/diagram&gt;&lt;/mxfile&gt;">
-        <defs/>
-        <g>
-          <path d="M 501 17 L 981 17 M 981 23 L 501 23 M 921 23" fill="none"  stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
-          <ellipse cx="461" cy="20" rx="12." ry="12.8" fill="rgb(255, 255, 255)"  pointer-events="all"/>
-          <path d="M 431 0 L 461 20 L 431 40 Z M 491 0 L 461 20 L 491 40 Z"  stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
-          <ellipse cx="461" cy="20" rx="12" ry="12.8" fill="rgb(255, 255, 255)"  pointer-events="all"/>
-          <path d="M -60 16 L 421 16 M 421 22 L -60 22 M 421 22" fill="none"  stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10" pointer-events="all"/>
-        </g>
-      </svg>`;
-  
-    // Iterate through each element
-    titleElements.forEach(function(element) {
-      // Create a new div element to contain the SVG
-      const svgWrapper = document.createElement('div');
-      svgWrapper.innerHTML = svgContent;
-  
-      // Append the SVG to the title element
-      element.appendChild(svgWrapper.firstChild);
-    });
-  } });
-
-function appendSVGToTitleElements() {
-  // Select all elements with the class "title"
-  const titleElements = document.querySelectorAll('.title');
-
-  // Iterate through each element
-  titleElements.forEach(function(element) {
-    // Create a new div element
-    const svgDiv = document.createElement('div');
-
-    // Style the div to include the SVG background (customize as needed)
-    svgDiv.style.background = "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%221223px%22%20height%3D%2241px%22%20viewBox%3D%22-0.5%20-0.5%20923%2041%22%20content%3D%22%26lt%3Bmxfile%26gt%3B%26lt%3Bdiagram%20id%3D%26quot%3B2TYFnY0_VJDJ40RJej4Q%26quot%3B%20name%3D%26quot%3BPage-1%26quot%3B%26gt%3BzZXfb5swEMf%2FGl4rfgSiPbZZuj1sUqVM2rODr2DVcMhcCNlfv3NsIIR03SpN6hP2h7uz73t3ECSbqv9iRFN%2BRwk6iEPZB8nnII7jMM74YcnJkXWWOlAYJR2KJrBTv8DD0NODktDODAlRk2rmMMe6hpxmTBiDx7nZM%2Br5qY0oYAF2udBL%2BlNJKh1dheHEv4IqSn%2Fy2vNKDKYetKWQeLxAyTZINgaR3KrqN6CtdIMqzu%2FxlbfjtQzU9DcOiXPohD74zPy96DSkCrW8t4rxrsaa4UNJleZdxMuWDL6MEiSWlKKxnlrVL27rEgx5A3p%2FXndgSLGYjNxxIBdyTxlEoy7cToAVkDmxyXHSPfVqlheSD8yAFqS6eXjhy1%2BM4cYTnlDxwXHoWzVb%2BTi%2BUVdpOg%2FR4sHk4L0ulb4KFIXZG5FImAJoEYkXF3lP6FzJ21VN367qUIJvYg%2F6CVtFCmt%2BtUcirLgwQqvCgpzrAGZe9cH53tsQNkwbe3Mw2449Wm8pRVuC9OUfWqPqC%2FtVuGuUjPmOHbR354eNbJ8%2FTmezvbAJPkh43pEgS3KNLUdzyfEdoP%2FXpvEO6fqqFomX7KKpshtNNTTDrf6Z1esPxfn0v0fuo49UtBip1ftGKl1M1FWgd08Ub6dvsDOf%2FmPJ9jc%3D%26lt%3B%2Fdiagram%26gt%3B%26lt%3B%2Fmxfile%26gt%3B%22) center/contain no-repeat";
-    svgDiv.style.marginTop = '10px';
-    svgDiv.style.width = '100%';
-    svgDiv.style.height = '41px'; // Adjust height to match the SVG's viewBox height
-
-    // Append the new div to the title element
-    svgDiv.className = 'decoration-container';
-    element.appendChild(svgDiv);
-  });
-}
-
-
-function updatePolygonPositions() {
-  const svg = document.getElementById('mySVG');
-  if (!svg) return;  // Make sure the SVG exists
-
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-
-  const polygons = svg.getElementsByClassName('decoration');
-  if (polygons.length >= 2) {
-    polygons[0].setAttribute('transform', `translate(${width}, 0) rotate(180)`);
-    polygons[1].setAttribute('transform', `translate(0, 0)`);
-  }
-}
 
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  var firstSlide = document.querySelector('.reveal .slides > section');
-
-  if (firstSlide) {
-    var decorationContainer = document.createElement('div');
-    decorationContainer.className = 'decoration-container';
-    decorationContainer.innerHTML = decorationMarkup;
-    firstSlide.parentElement.parentElement.appendChild(decorationContainer);
-
-    updatePolygonPositions();  // Initial positioning after insertion
-
-    window.addEventListener('resize', updatePolygonPositions);
-
-    onClassChange(firstSlide, (node) => {
-      if (node.classList.contains('present')) {
-        decorationContainer.style.display = "block";
-      } else {
-        decorationContainer.style.display = "none";
-      }
-    });
-  }
-});
 
 document.addEventListener('DOMContentLoaded', function() {
   // Function to automatically apply the .image classes to all <img> elements
@@ -318,3 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedElement = null;
   });
 });
+
+
+
