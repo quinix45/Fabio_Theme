@@ -182,7 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
                   // Apply the new class
                   const newClassName = menuItem.getAttribute('data-class');
                   if (newClassName) {
-                      currentImage.classList.add(newClassName);
+
+                      currentImage.classList.add(newClassName)
+                  
+                    // var parent = currentImage.parentElement
+                    // currentImage.remove()
+                    // var overlay = document.createElement('div');
+                    // currentImage.append(over)
+                    // overlay.classList.add("dim");
+                    // parent.append(overlay)
+                    // overlay.append(currentImage)
                   }
 
                   // Hide the context menu
@@ -295,6 +304,4 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedElement = null;
   });
 });
-
-
 

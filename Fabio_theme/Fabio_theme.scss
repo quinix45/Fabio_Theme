@@ -38,8 +38,6 @@ $selection-bg: lighten($theme-color, 15%);
 
 // author
 
-
-
 .quarto-title-author {
   font-family: $font-family-sans-serif;
   font-size: 1.5em !important;
@@ -77,7 +75,6 @@ $selection-bg: lighten($theme-color, 15%);
 .reveal .footer > * {
   transform: skew(25deg) !important;
 }
-
 
 .hide {
   display: none !important;
@@ -202,17 +199,27 @@ ol li::marker {
   z-index: 300000 !important;
 }
 
-//.dim::before {
-//  content: '';
-//  position: fixed;
-//  top: 0;
-//  left: 0;
-//  width: 100vw;
-//  height: 100vh;
-//  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-//  z-index: 1; /* Ensure it's below the zoomed element */
-//  pointer-events: none; /* Allows interaction with the zoomed element */
-//}
+.dim {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  //z-index: 1; /* Ensure it's below the zoomed element */
+ // pointer-events: none; /* Allows interaction with the zoomed element */
+}
+
+
+
+// Code options
+
+.reveal div.sourceCode {
+  width: fit-content;
+  padding: 2px;
+}
+
 
 // Zoom Animations
 
@@ -361,3 +368,4 @@ ol li::marker {
   border-radius: 10%;
   z-index: 99999;
 }
+
