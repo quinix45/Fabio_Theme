@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   } 
 });
 
-// first line controls size (left plygon in title)
-const decorationMarkup1 = `<svg id="mySVG" style="transform: scaleX(4.5) scaleY(3); transform-origin: 0 0;">
+// first line controls size (left polygon in title)
+const decorationMarkup1 = `<svg id="mySVG" style="transform: scaleX(3.5) scaleY(3.5); transform-origin: 0 0;">
 <polygon points="129.9038105676658, 74.99999999999999 39.184850993605149,150 -129.90381056766577,1005.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:2;"/>
 </svg>`;
 
@@ -48,13 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
       svgWrapper1.innerHTML = decorationMarkup1;
 
 
-      svgWrapper1.style.position = 'absolute';
-      svgWrapper1.style.top = '-135%';  // Adjust as needed
-      svgWrapper1.style.left = '-25%'; // Adjust as needed
-      svgWrapper1.style.width = '0%'; // Full width of the parent
-      svgWrapper1.style.height = '0'; // Full height of the parent
+      svgWrapper1.style.position = 'fixed';
+      svgWrapper1.style.top = '-37%';  // Adjust as needed
+      svgWrapper1.style.left = '-27%'; // Adjust as needed
+      svgWrapper1.style.width = '0px'; // Full width of the parent
+      svgWrapper1.style.height = '0px'; // Full height of the parent
       svgWrapper1.style.pointerEvents = 'none'; // So it doesn't block interactions
       svgWrapper1.style.zIndex = '10'; // Ensure it's above other content
+      svgWrapper1.style.backgroundColor = "red";
+      svgWrapper1.id = "SVGwrapper1";
   
       // Append the SVG to the title element
       element.append(svgWrapper1);
@@ -65,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// first line controls size (left plygon in title)
-const decorationMarkup2 = `<svg id="mySVG" style="transform: scaleX(-4.5) scaleY(3); transform-origin: 0 0;">
+// first line controls size (right polygon in title)
+const decorationMarkup2 = `<svg id="mySVG" style="transform: scaleX(-3.5) scaleY(3.5); transform-origin: 0 0;">
 <polygon points="129.9038105676658, 74.99999999999999 39.184850993605149,150 -129.90381056766577,1005.00000000000006 -129.90381056766583,-74.99999999999996 -2.7554552980815446e-14,-150 129.90381056766583,-74.99999999999994"  class="decoration" style="stroke-width:2;"/>
-</svg>`
+</svg>`;
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -76,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function appendSVGToTitleElements() {
     // Select all elements with the class "title"
     const titleElements = document.querySelectorAll('.quarto-title-block');
-      
     // Iterate through each element
     titleElements.forEach(function(element) {
       // Create a new div element to contain the SVG
@@ -85,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
       svgWrapper2.style.position = 'absolute';
-      svgWrapper2.style.top = '-135%';  // Adjust as needed
-      svgWrapper2.style.left = '125%'; // Adjust as needed
+      svgWrapper2.style.top = '-37%';  // Adjust as needed
+      svgWrapper2.style.left = '127%'; // Adjust as needed
       svgWrapper2.style.width = '0%'; // Full width of the parent
       svgWrapper2.style.height = '0'; // Full height of the parent
       svgWrapper2.style.pointerEvents = 'none'; // So it doesn't block interactions
@@ -304,4 +305,400 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedElement = null;
   });
 });
+
+
+// ANIMATIONS 
+
+// fragment on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Get "fragments", elements with fragment class
+  const fragments = document.querySelectorAll('.fragment');
+  
+  // Add identifiers to "fragments"
+  fragments.forEach(fragment => {
+    fragment.classList.add('fragment-thingy');
+  });
+  
+  disableAllFragments(fragments, false);
+})
+
+// fragment animation toggle
+document.addEventListener('DOMContentLoaded', function () {
+    // Add a key listener (e.g., press 'T' to toggle fragments)
+    document.addEventListener('keydown', function (event) {
+  
+      
+      
+        if (event.key.toLowerCase() === 't') {
+            // Get "fragment-thingy"s
+          
+          // disables animations if search box is on scre
+            if (!document.querySelector('.searchinput') || window.getComputedStyle(document.querySelector('.searchbox'), null).display === "none" ) {
+            
+            const fragments = document.querySelectorAll('.fragment-thingy');
+            
+            const fragmentsEnabled = areFragmentsEnabled(fragments);
+            
+            if (fragmentsEnabled)
+              disableAllFragments(fragments);
+            else
+              enableAllFragments(fragments);
+
+            console.log(fragmentsEnabled ? 'Fragments disabled.' : 'Fragments enabled.');
+  
+            
+        } else{
+          
+          
+          console.log("Animation Function disabled because search box is visible");
+          //console.log(document.querySelector('.searchinput').style.display);
+          
+        }
+          
+        }
+    });
+});
+
+
+function areFragmentsEnabled(fragments) {
+  return fragments.length > 0 && fragments[0].classList.contains('fragment');
+}
+
+function showPopup(message) {
+    let popup = document.createElement('div');
+    popup.innerText = message;
+    popup.style.position = 'fixed';
+    popup.style.top = '50%';
+    popup.style.left = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.padding = '20px';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.color = 'white';
+    popup.style.fontSize = '26px';
+    popup.style.borderRadius = '20px';
+    popup.style.zIndex = '1000';
+    
+    document.body.appendChild(popup);
+    
+    setTimeout(() => {
+        popup.remove();
+    }, 500); 
+}
+
+function enableAllFragments(fragments) {
+    fragments.forEach(fragment => {
+        fragment.classList.add('fragment');
+        fragment.style.visibility = "none";
+    });
+
+    
+    showPopup("Animations ON");
+}
+
+function disableAllFragments(fragments, showPopupMessage = true) {
+    fragments.forEach(fragment => {
+        fragment.classList.remove('fragment');
+        fragment.style.visibility = 'visible';
+    });
+    if (showPopupMessage) {
+        showPopup("Animations OFF");
+    }
+}
+
+
+
+setTimeout(function() {
+  if (document.querySelector('.reveal-print')) {
+    document.querySelectorAll('.footer, .decoration').forEach(function(el) {
+      el.style.visibility = 'hidden';
+    });
+  }
+}, 500); // half a second
+
+
+// crearte hiden search box on document load
+
+
+// pull up search menu when clicking on search icon
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Create the span element
+  const span = document.createElement('span');
+  span.title = 'search ( ctrl + shift + F)';  // Set the title attribute
+
+  // Create the SVG element
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  svg.setAttribute('width', '20');
+  svg.setAttribute('height', '24');
+  svg.setAttribute('viewBox', '0 0 20 24');
+  svg.innerHTML = `<path fill="currentColor" fill-rule="evenodd" d="M14.385 15.446a6.75 6.75 0 1 1 1.06-1.06l5.156 5.155a.75.75 0 1 1-1.06 1.06zm-7.926-1.562a5.25 5.25 0 1 1 7.43-.005l-.005.005l-.005.004a5.25 5.25 0 0 1-7.42-.004" clip-rule="evenodd"/>`;
+
+       svg.classList.add( "menu-icon");
+
+
+  // Apply styling to the SVG
+  svg.style.cursor = 'pointer';
+  svg.style.verticalAlign = 'top';
+
+  // Add click event to simulate CTRL + SHIFT + F behavior
+  svg.addEventListener('click', function () {
+    const event = new KeyboardEvent('keydown', {
+      key: 'F',
+      code: 'KeyF',
+      ctrlKey: true,
+      shiftKey: true,
+      bubbles: true
+    });
+
+    // Dispatch the event on the document to simulate the shortcut
+    document.dispatchEvent(event);
+    
+    console.log('CTRL + SHIFT + F triggered');
+  });
+
+  // Append the SVG to the span
+  span.appendChild(svg);
+
+  // Find the element with the class 'slide-menu-offset'
+  const slideMenu = document.querySelector('.slide-menu-offset');
+
+  // Check if the element exists to avoid errors
+  if (slideMenu) {
+    // Append the span (with the SVG) to the element
+    slideMenu.appendChild(span);
+  }
+});
+
+
+
+
+
+// Searchbox button
+
+document.addEventListener('keydown', function(event) {
+  
+  setTimeout(function() {
+
+    const searchBoxElement = document.querySelector('.searchbox');
+    if (!searchBoxElement) return;
+
+    // Check if the button already exists
+    if (!searchBoxElement.querySelector('.search-button')) {
+        const buttonElement = document.createElement('button');
+        
+        // Optional: remove default button border
+        buttonElement.style.padding = '6px 6px'; // Optional: better styling
+        buttonElement.style.cursor = 'pointer'; // Optional: make it look clickabl
+        buttonElement.style.verticalAlign = 'right';
+        
+        buttonElement.innerHTML = 'Search';
+        buttonElement.classList.add('search-button');
+        buttonElement.onclick = TriggerSearchBox;
+
+        // Find the search input and insert the button properly
+        const searchInputElement = searchBoxElement.querySelector('.searchinput');
+        if (searchInputElement) {
+            wrapper = document.createElement('div'); // Creates a new block container
+            wrapper.classList.add('button-wrapper')
+            
+            wrapper.style.position = 'absolute';
+            wrapper.style.right = '.1%';
+            
+            wrapper.appendChild(buttonElement);
+            searchInputElement.insertAdjacentElement('afterend', wrapper);
+            
+        } else {
+            searchBoxElement.appendChild(buttonElement);
+        }
+    }
+    
+}, 5) 
+});
+
+
+
+
+
+function TriggerSearchBox() {
+    const searchInputElement = document.querySelector('.searchinput');
+    if (searchInputElement) {
+        searchInputElement.focus();
+        searchInputElement.dispatchEvent(new KeyboardEvent('keyup', {
+            key: 'Enter',
+            code: 'Enter',
+            which: 13,
+            keyCode: 13
+        }));
+    }
+}
+
+
+
+
+// navigation arrows in bottom-left menu
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Create the span element
+  const span = document.createElement('span');
+  span.title = 'Previous Slide (<-)';  // Set the title attribute
+
+  // Create the SVG element (Iconify Light Arrow Left)
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  svg.setAttribute('width', '26');
+  svg.setAttribute('height', '26');
+  svg.setAttribute('viewBox', '0 0 26 26');
+  svg.innerHTML = `<path fill="currentColor" d="M11.03 8.53a.75.75 0 1 0-1.06-1.06l-4 4a.75.75 0 0 0 0 1.06l4 4a.75.75 0 1 0 1.06-1.06l-2.72-2.72H18a.75.75 0 0 0 0-1.5H8.31z" transform="scale(1.4) translate(-3, -3)"/>`;
+
+  // Apply styling to the SVG
+  svg.style.cursor = 'pointer';
+  svg.style.verticalAlign = 'top';
+  
+  svg.classList.add( "menu-icon");
+
+  // Add click event to simulate the ArrowLeft key behavior
+  svg.addEventListener('click', function () {
+    const event = new KeyboardEvent('keydown', {
+      key: 'ArrowLeft',
+      code: 'ArrowLeft',
+      keyCode: 37,
+      which: 37
+    });
+
+    // Dispatch the event on the document to simulate the shortcut
+    document.dispatchEvent(event);
+    
+    console.log('ArrowLeft triggered');
+  });
+
+  // Append the SVG to the span
+  span.appendChild(svg);
+
+  // Find the element with the class 'slide-menu-offset'
+  const slideMenu = document.querySelector('.slide-menu-offset');
+
+  // Check if the element exists to avoid errors
+  if (slideMenu) {
+    // Append the span (with the SVG) to the element
+    slideMenu.appendChild(span);
+  }
+});
+ 
+
+
+// ARROW-RIGHT
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Create the span element
+  const span = document.createElement('span');
+  span.title = 'Next Slide (->)';  // Set the title attribute
+
+  // Create the SVG element (Iconify Light Arrow Right)
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  svg.setAttribute('width', '46');
+  svg.setAttribute('height', '26');
+  svg.setAttribute('viewBox', '0 0 26 26');
+  svg.innerHTML = `<path fill="currentColor" d="M14.97 8.53a.75.75 0 0 1 1.06-1.06l4 4a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 0 1-1.06-1.06l2.72-2.72H8a.75.75 0 0 1 0-1.5h9.69z" transform="scale(1.4) translate(-10, -3)"/>`;
+
+  svg.classList.add( "menu-icon");
+
+  // Apply styling to the SVG
+  svg.style.cursor = 'pointer';
+  svg.style.verticalAlign = 'top';
+
+  // Add click event to simulate the ArrowRight key behavior
+  svg.addEventListener('click', function () {
+    const event = new KeyboardEvent('keydown', {
+      key: 'ArrowRight',
+      code: 'ArrowRight',
+      keyCode: 39,
+      which: 39
+    });
+
+    // Dispatch the event on the document to simulate the shortcut
+    document.dispatchEvent(event);
+    
+    console.log('ArrowRight triggered');
+  });
+
+  // Append the SVG to the span
+  span.appendChild(svg);
+
+  // Find the element with the class 'slide-menu-offset'
+  const slideMenu = document.querySelector('.slide-menu-offset');
+
+  // Check if the element exists to avoid errors
+  if (slideMenu) {
+    // Append the span (with the SVG) to the element
+    slideMenu.appendChild(span);
+  }
+});
+
+
+// fullscreen 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Create the span element
+  const span = document.createElement('span');
+  span.title = 'Toggle Fullscreen (F11)';  // Updated title
+
+  // Create the SVG element
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  svg.setAttribute('width', '20');
+  svg.setAttribute('height', '24');
+  svg.setAttribute('viewBox', '0 0 512 512');
+  svg.innerHTML = `<path fill="currentColor" d="M21 512h107q21 0 21-21q0-22-21-22H73l134-134q13-15 0-30q-15-13-30 0L43 439v-55q0-21-22-21q-21 0-21 21v107q0 9 6 15t15 6m470-149q-22 0-22 21v55L335 305q-15-13-30 0q-13 15 0 30l134 134h-55q-21 0-21 22q0 21 21 21h107q9 0 15-6t6-15V384q0-21-21-21m0-363H384q-21 0-21 21q0 22 21 22h55L305 177q-13 15 0 30q6 6 15 6t15-6L469 73v55q0 21 22 21q21 0 21-21V21q0-9-6-15t-15-6M21 149q22 0 22-21V73l134 134q6 6 15 6t15-6q13-15 0-30L73 43h55q21 0 21-22q0-21-21-21H21Q12 0 6 6T0 21v107q0 21 21 21" "translate(-100, -3)"/>`;
+  
+  svg.classList.add("menu-icon");
+
+  // Apply styling to the SVG
+  svg.style.cursor = 'pointer';
+  svg.style.verticalAlign = 'top';
+
+  // Toggle fullscreen on click
+  svg.addEventListener('click', function () {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+
+  // Append the SVG to the span
+  span.appendChild(svg);
+
+  // Find the element with the class 'slide-menu-offset'
+  const slideMenu = document.querySelector('.slide-menu-offset');
+
+  // Check if the element exists to avoid errors
+  if (slideMenu) {
+    // Append the span (with the SVG) to the element
+    slideMenu.appendChild(span);
+  }
+});
+
+
+
+
+
+// set zoom on load
+// window.addEventListener('load', function() {
+//     // Check if the browser is not Firefox
+//     if (!navigator.userAgent.includes('Firefox')) {
+//         document.body.style.zoom = '100%';
+//     }
+// });
+
+
+
+// hide slide Number (JS code seems to need to go before this)
+
+  const isSnOn = (event.currentSlide.dataset.hideSlideNumber !== 'true');
+            Reveal.configure({ slideNumber: isSnOn });
+      
 

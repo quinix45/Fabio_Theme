@@ -7,17 +7,30 @@ $font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino, FreeSeri
 $font-family-heading: "Arial", sans-serif;
 
 // weight of font heading (thickness)
-$presentation-heading-font-weight: 80 !important;
+$presentation-heading-font-weight: 60 !important;
 
 //font size fo text
-$presentation-font-size-root: 2.1em;
+$presentation-font-size-root: 1.7em;
 
 // font size for level 2 headings (defined with "##")
 $presentation-h2-font-size: 2.4em !default;
 
 // default theme color
-$theme-color: #1c74d8; 
+$theme-color: #7a0b80;
 
+// info callout color
+$callout-color-note: $theme-color;
+
+//#1c74d8
+
+//best?: #53b0a8
+// good: #c45674, lighter: #f54278
+
+//#3f5c4d
+// #a82857
+// #7300e6
+// #db5656
+//#e1ccff
 // some example colors
 
 // c("#458B00", "#DEB887", "#6495ED")
@@ -34,7 +47,14 @@ $link-color: $theme-color;
 //defualt selection color 
 $selection-bg: lighten($theme-color, 15%);
 
+
+
+
+
+// callouts
+
 /*-- scss:rules --*/
+
 
 // author
 
@@ -55,13 +75,13 @@ $selection-bg: lighten($theme-color, 15%);
 // footer
 .reveal .footer {
   font-family: $font-family-sans-serif;
-  font-size: .6em !important;
+  font-size: 1rem !important;
   font-weight: 550 !important;
   width: 50% !important;
   color: $body-bg;
   bottom: -0% !important;
   width: 80%;
-  left: 20%;
+  left: 25%;
   background-color: lighten($theme-color, 15%);
   padding-top: 15px;
   padding-bottom: 10px;
@@ -72,6 +92,37 @@ $selection-bg: lighten($theme-color, 15%);
   border: 2.5px solid $theme-color;
 }
 
+@media screen and (max-width: 930px){
+  .reveal .footer {
+    //display: none;
+    font-size: .7rem !important;
+    left: 40%;
+//position: relative;
+  }
+}
+
+@media screen and (max-height: 530px) {
+  .reveal .footer {
+    display: none !important;
+    //font-size: .7rem !important;
+    //left: 40%;
+//position: relative;
+  }
+  
+}
+
+@media screen and (max-height: 530px) {
+  .reveal .slide-number {
+  font-family: $font-family-sans-serif;
+  font-size: .6em !important;
+  color: $theme-color !important;
+  font-weight: 550 !important;
+}
+
+}
+
+
+
 .reveal .footer > * {
   transform: skew(25deg) !important;
 }
@@ -79,6 +130,25 @@ $selection-bg: lighten($theme-color, 15%);
 .hide {
   display: none !important;
 }
+
+// search bar elements
+
+//.searchinput{
+//   width: 540px !important;
+//}
+
+.search-button{
+   background-color: $body-bg;
+   color: $theme-color;
+   font-family: $font-family-sans-serif;
+     border: solid 1.5px;
+  border-color: lighten($theme-color, 15%);
+  border-radius: 10%;
+  font-size: .8rem;
+  font-weight: 800;
+}
+
+
 
 // slide number
 
@@ -95,6 +165,38 @@ $selection-bg: lighten($theme-color, 15%);
 }
 
 
+// figure captions for tikz figures mostly
+
+figcaption {
+  margin: auto;
+  text-align: center;
+  margin-top: -18px;
+  font-size: .8em;
+}
+
+
+// hide title-slide number 
+
+.reveal .slide-number > a[href*='title-slide'] {
+  display: none;
+}
+
+
+.no-slide-number .reveal .slides section {
+  counter-reset: slide;
+}
+
+.no-slide-number .reveal .slides section:after {
+  display: none;
+}
+
+.quarto-title-block {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
 
 // headings
 
@@ -106,8 +208,24 @@ $selection-bg: lighten($theme-color, 15%);
   letter-spacing: 0.04em;
   text-transform: capitalize;
   text-shadow: none;
+  white-space: nowrap;
   z-index: 0 !important;
 }
+
+
+.reveal .slides h3 {
+  margin: 0 0 40px 0;
+  color: $theme-color;
+  font-family: "League Gothic", Impact, sans-serif;
+  line-height: 0.9em;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  text-shadow: none;
+  white-space: nowrap;
+  z-index: 0 !important;
+  font-size: 2.2em;
+}
+
 
 // title
 .reveal .slides h1 {
@@ -121,23 +239,43 @@ $selection-bg: lighten($theme-color, 15%);
   text-shadow: none;
 }
 
+// "Data" heading class
 
-// Bold color
+.data-title {
+  font-weight: 800;
+  color: $theme-color;
+  font-size: 1.5em;
+}
+
+
+// Shinylive wrapper and source code
+
+.reveal div.sourceCode {
+    margin: 6px !important;
+    overflow: auto;
+}
+
+div.shinylive-wrapper {
+    margin: 0em 0;
+    border-radius: 0px;
+}
+
+//Bold color
 b,
 strong {
-  color: $theme-color;
-}
+  color: $theme-color;}
 
 // bullet points
 
 ul li::marker {
   color: $theme-color;
-  content: "➣ ";
 }
-
+  
+  
 ol li::marker {
   color: $theme-color;
 }
+
 
 // classes to assign to SVGs added through JS
 
@@ -146,6 +284,31 @@ ol li::marker {
   stroke: lighten($theme-color, 15%);
   background-color: lighten($theme-color, 15%);
 }
+
+
+@media screen and (max-width: 530px) {
+  .decoration {
+    display: none !important;
+    //font-size: .7rem !important;
+    //left: 40%;
+//position: relative;
+  }
+  
+}
+  
+
+
+.menu-icon{
+  fill: $theme-color;
+  color: $theme-color;
+  // display: inline-block;
+  // border-width: .3;
+  //padding-bottom: 13px;
+}
+
+
+
+
 
 .title-separator{
   fill: $theme-color;
@@ -211,15 +374,76 @@ ol li::marker {
  // pointer-events: none; /* Allows interaction with the zoomed element */
 }
 
+// callouts?
 
+
+// code summary
+
+details summary {
+  color: $theme-color;
+  font-weight: 700;
+}
 
 // Code options
 
 .reveal div.sourceCode {
-  width: fit-content;
-  padding: 2px;
+  // width: fit-content;
+  padding: 5px;
 }
 
+
+
+.code-80{
+  font-size: 80%  
+}
+
+.code-90{
+  font-size: 90%  
+}
+
+.code-105{
+  font-size: 105%  
+}
+
+.code-110{
+  font-size: 110%  
+}
+
+.code-115{
+  font-size: 115%  
+}
+
+.code-125{
+  font-size: 125%  
+}
+
+.code-150{
+  font-size: 150%  
+}
+
+.code-175{
+  font-size: 175%  
+}
+
+.code-200{
+  font-size: 200%  
+}
+
+.code{
+  max-height: 150px;
+}
+
+.height-150{
+  max-height: 150px
+}
+
+.height-200{
+  height: 1200px
+}
+
+.width-900{
+  max-width: 900px;
+}
 
 // Zoom Animations
 
@@ -230,8 +454,8 @@ ol li::marker {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: auto; /* Ensure the width is automatic to preserve original dimensions */
-  height: auto; /* Ensure the height is automatic to preserve original dimensions */
+  // width: auto; /* Ensure the width is automatic to preserve original dimensions */
+  // height: auto; /* Ensure the height is automatic to preserve original dimensions */
   border-radius: 10%;
   background-color: $body-bg; 
   z-index: 99999;
@@ -240,7 +464,7 @@ ol li::marker {
   border-color: lighten($theme-color, 15%);
 }
 
-
+//zoom1_25xJS-active
 .zoom1_25xJS-active {
   transition: transform .3s;
   transform: translate(-50%, -50%) scale(1.25);
