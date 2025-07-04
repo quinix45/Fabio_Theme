@@ -132,7 +132,7 @@ plot(pressure)
 
 ## Animations On/Off
 
-The the also includes custom .js code that allows to turn animation on and off when the "t" key is pressed
+The theme includes custom .js code that allows to turn animation on and off when the "t" key is pressed
 
 ::: {.fragment fragment-index=1}
 - press "t"
@@ -145,13 +145,13 @@ The the also includes custom .js code that allows to turn animation on and off w
 
 
 ::: {.fragment fragment-index=3}
-- animations are off by default. I turn them on when presenting!
+- animations are off by default so that students can see the full slides right away. I turn them on when presenting! 
 :::
 
 
 ## Accessibility and Quality of Life Improvements
 
-The them also adds 4 icons at the bottom left:
+The theme also adds 4 icons at the bottom left:
 
 
 - The magnifying lens toggles a search box on the top right that can be used to search throughout the slides. This functionality is available in base reveal.js, but the shortcut is not very intuitive and not explicitly stated to users. I also added a search button that can be pressed to initiate the search (instead of pressing "enter" or "return" being the only way of initiating the search)
