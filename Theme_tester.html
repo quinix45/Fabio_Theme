@@ -6,11 +6,11 @@
 <script src="Theme_tester_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Theme_tester_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Theme_tester_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Theme_tester_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="Theme_tester_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Fabio Setti">
-  <meta name="dcterms.date" content="2025-07-04">
+  <meta name="dcterms.date" content="2025-09-21">
   <title>Fabio Theme Demo</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="Theme_tester_files/libs/revealjs/dist/theme/quarto-fe7a1afd43333d4ce285db005c8bb989.css">
+  <link rel="stylesheet" href="Theme_tester_files/libs/revealjs/dist/theme/quarto-42c5492bbdf1740002e21321b3c6cade.css">
   <link href="Theme_tester_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Theme_tester_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Theme_tester_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -210,7 +210,7 @@ Fabio Setti
     </div>
 </div>
 
-  <p class="date">2025-07-04</p>
+  <p class="date">2025-09-21</p>
 </section>
 <section id="original-quarto-reveal-demo" class="slide level2">
 <h2>Original Quarto Reveal Demo</h2>
@@ -248,7 +248,7 @@ Fabio Setti
 </section>
 <section id="zoomable-images" class="slide level2">
 <h2>Zoomable Images</h2>
-<p>Tired of hearing that your figures are too small to read?? Custom JS zoom options for figures on <strong>left-click</strong>! To reset to original position, <strong>right-click</strong> on image.</p>
+<p>Tired of hearing that your figures are too small to read?? Custom JS zoom options for figures on <strong>double left-click</strong>! To reset to original position, <strong>right-click</strong> on image.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -259,9 +259,9 @@ Fabio Setti
 <div class="col quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Note:</strong> Using .absolute to position images will interfere with the zoom feature. If zoom function is needed for an absolutely positioned images, I recommend creating an absolutely position div and place the image inside it like so:</p>
 <p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top:60%; left:50%;"</span><span class="dt">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top:60%; left:50%;"</span><span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href=""></a>![](Fabio_theme/theme_images/avg_plot.png){width="30%"}</span>
-<span id="cb1-3"><a href=""></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href=""></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -275,15 +275,41 @@ Fabio Setti
 <h2>GGplot Output</h2>
 <p>Zoom also works with <code>GGplot</code> output</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co">#some random comment to see if chunk resizes correctly</span></span>
-<span id="cb2-2"><a href=""></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>)) </span>
-<span id="cb2-3"><a href=""></a><span class="fu">plot</span>(pressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>)) </span>
+<span id="cb2-2"><a href=""></a><span class="fu">plot</span>(pressure)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="Theme_tester_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+<p><img data-src="Theme_tester_files/figure-revealjs/unnamed-chunk-1-1.png" style="width:65.0%"></p>
 </figure>
 </div>
+</div>
+</div>
+</section>
+<section id="zoom-code-output" class="slide level2">
+<h2>Zoom Code Output</h2>
+<p>Code output can also be zoomed in the same way you would for images (<strong>double left-click</strong> on code output):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">summary</span>(<span class="fu">lm</span>(cyl <span class="sc">~</span> disp, mtcars))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = cyl ~ disp, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.3236 -0.6317 -0.1129  0.6915  1.2266 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 3.188568   0.296388   10.76 8.12e-12 ***
+disp        0.012998   0.001136   11.45 1.80e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7837 on 30 degrees of freedom
+Multiple R-squared:  0.8137,    Adjusted R-squared:  0.8075 
+F-statistic:   131 on 1 and 30 DF,  p-value: 1.803e-12</code></pre>
 </div>
 </div>
 </section>
@@ -511,7 +537,7 @@ Fabio Setti
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -661,13 +687,14 @@ Fabio Setti
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

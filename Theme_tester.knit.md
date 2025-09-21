@@ -123,23 +123,59 @@ Tired of hearing that your figures are too small to read?? Custom JS zoom option
 
 Zoom also works with `GGplot` output 
 
-```{r}
-#| out-width: "65%"
-#| echo: true
 
+::: {.cell}
+
+```{.r .cell-code}
 par(mar = c(4, 4, 1, 1)) 
 plot(pressure)
 ```
+
+::: {.cell-output-display}
+![](Theme_tester_files/figure-revealjs/unnamed-chunk-1-1.png){width=65%}
+:::
+:::
+
 
 ## Zoom Code Output
 
 Code output can also be zoomed in the same way you would for images (**double left-click** on code output):
 
 
-```{r}
-#| echo: true
+
+::: {.cell}
+
+```{.r .cell-code}
 summary(lm(cyl ~ disp, mtcars))
 ```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
+Call:
+lm(formula = cyl ~ disp, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.3236 -0.6317 -0.1129  0.6915  1.2266 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 3.188568   0.296388   10.76 8.12e-12 ***
+disp        0.012998   0.001136   11.45 1.80e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7837 on 30 degrees of freedom
+Multiple R-squared:  0.8137,	Adjusted R-squared:  0.8075 
+F-statistic:   131 on 1 and 30 DF,  p-value: 1.803e-12
+```
+
+
+:::
+:::
+
 
 
 
@@ -180,5 +216,6 @@ The theme also adds 4 icons at the bottom left:
 
 
 # If I think of Some Other Useful Features, I will Add them 👋
+
 
 
