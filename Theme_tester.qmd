@@ -10,6 +10,7 @@ format:
       footer: "Fabio Theme Demo"
       width: 1280
       height: 720
+      margin: 0.1
       chalkboard: true
       slide-number: c/t 
       theme: Fabio_theme/Fabio_theme.scss
@@ -141,12 +142,85 @@ Code output can also be zoomed in the same way you would for images (**double le
 summary(lm(cyl ~ disp, mtcars))
 ```
 
+## Easily change Code chunks Size
+
+the `Fabio_theme.scss` file includes some custom classes to change the size of code chunks and output. This can be achieved by adding to the `#| classes:` option to any `R` chunk:
+
+:::: {.columns}
+::: {.column width = '50%'}
+```{r}
+#| eval: true
+#| echo: true 
+#| code-line-numbers: false
+#| classes: code-90
+
+
+# added `#| classes: code-90`
+2 + 4
+```
+
+```{r}
+#| eval: true
+#| echo: true 
+#| code-line-numbers: false
+
+
+# normal size, no #| classes: option
+2 + 4
+```
+
+
+```{r}
+#| eval: true
+#| echo: true 
+#| code-line-numbers: false
+#| classes: code-125
+
+# added `#| classes: code-125`
+2 + 4
+```
+
+
+:::
+::: {.column width = '50%'}
+
+```{r}
+#| eval: true
+#| echo: true 
+#| code-line-numbers: false
+#| classes: code-150
+
+# added `#| classes: code-150`
+2 + 4
+```
+
+
+```{r}
+#| eval: true
+#| echo: true 
+#| code-line-numbers: false
+#| classes: code-200
+
+# added `#| classes: code-200`
+2 + 4
+```
+
+
+
+:::
+::::
+
+If other sizes are needed, it's very quick to create a class with a specific size, add it to the `.scss` style file, and then assign it to a chunk
+
+
 
 
 
 ## Animations On/Off
 
 The theme includes custom .js code that allows to turn animation on and off when the "t" key is pressed
+
+
 
 ::: {.fragment fragment-index=1}
 - press "t"

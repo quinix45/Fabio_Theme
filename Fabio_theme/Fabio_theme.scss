@@ -9,14 +9,14 @@ $font-family-heading: "Arial", sans-serif;
 // weight of font heading (thickness)
 $presentation-heading-font-weight: 60 !important;
 
-//font size fo text
-$presentation-font-size-root: 1.7em;
+//font size for text
+$presentation-font-size-root: 1.7rem;
 
 // font size for level 2 headings (defined with "##")
-$presentation-h2-font-size: 2.4em !default;
+$presentation-h2-font-size: 4.5rem !default;
 
 // default theme color
-$theme-color:#72253D;
+$theme-color: #801818;
 
 // info callout color
 $callout-color-note: $theme-color;
@@ -324,7 +324,7 @@ kbd {
   right: 0;
 }
 
-// Zoome menu
+// Zoom menu
 
 /* Basic styles for the context menu */
 .custom-menu {
@@ -449,8 +449,6 @@ details summary {
   position: fixed;
   top: 50%;
   left: 50%;
-  // width: auto; /* Ensure the width is automatic to preserve original dimensions */
-  // height: auto; /* Ensure the height is automatic to preserve original dimensions */
   border-radius: 10%;
   background-color: $body-bg; 
   z-index: 99999;
@@ -588,4 +586,3 @@ details summary {
   z-index: 99999;
 }
 
-// tooltip
