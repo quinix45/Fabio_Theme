@@ -237,7 +237,7 @@ The theme includes custom .js code that allows to turn animation on and off when
 :::
 
 
-## Accessibility and Quality of Life Improvements
+## Accessibility and QOL Improvements
 
 The theme also adds 4 icons at the bottom left:
 
