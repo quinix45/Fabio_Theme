@@ -1,6 +1,6 @@
 This is a repository that contains a theme for Quarto Reveal JS that I created. The theme also includes some additional useful features have also been added through custom Java Script. 
 
-Theme demo: [https://raw.githack.com/quinix45/Fabio_Theme/main/Theme_tester.html#/changing-the-theme-color](https://raw.githack.com/quinix45/Fabio_Theme/main/Theme_tester.html#/title-slide)
+Theme demo: [https://quinix45.github.io/Fabio_Theme/Theme_tester.html#/title-slide](https://quinix45.github.io/Fabio_Theme/Theme_tester.html#/title-slide)
 
 
 ## Download Theme
