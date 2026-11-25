@@ -11,4 +11,4 @@ curl -fsSL "https://codeload.github.com/${REPO}/tar.gz/refs/heads/${BRANCH}" \
 # Git archives omit empty directories, so recreate the skeleton's empty folders.
 mkdir -p additionalFiles/images additionalFiles/scripts
 
-echo "Presentation skeleton downloaded into $(pwd)"
+echo "Presentation files downloaded into into $(pwd)"
