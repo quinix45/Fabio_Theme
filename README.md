@@ -8,7 +8,7 @@ Theme demo: [https://quinix45.github.io/Fabio_Theme/Theme_tester.html#/title-sli
 You can download the theme and the supporting files by opening a terminal in the desired directory and running the following line:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/quinix45/Fabio_Theme/main/getTheme.sh | bash
+curl -fsSL https://raw.githubusercontent.com/quinix45/Fabio_Theme/refs/heads/main/getTheme.sh | bash
 ```
 
 The script will download the necessary theme files and set up the skeleton for a presentation. [curl](https://curl.se/) must be installed on the system.
