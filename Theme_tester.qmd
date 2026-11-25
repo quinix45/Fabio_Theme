@@ -91,7 +91,7 @@ Tired of hearing that your figures are too small to read?? Custom JS zoom option
 
 :::col
 <div>
-![](Fabio_theme/theme_images/avg_plot.png){width="20%"}     
+![](additionalFiles/images/avg_plot.png){width="20%"}     
 </div>
 :::
 
@@ -104,7 +104,7 @@ Tired of hearing that your figures are too small to read?? Custom JS zoom option
 
 ```html
 <div style="position: absolute; top:60%; left:50%;">
-![](Fabio_theme/theme_images/avg_plot.png){width="30%"}
+![](additionalFiles/images/avg_plot.png){width="30%"}
 </div>
 ```
 
@@ -112,12 +112,12 @@ Tired of hearing that your figures are too small to read?? Custom JS zoom option
 
 :::
 
-![](Fabio_theme/theme_images/avg_plot.png){width="20%"} 
+![](additionalFiles/images/avg_plot.png){width="20%"} 
 
 <!-- to absolutely set images without interfering with zoom option -->
 
 <div style="position: absolute; top:70%; left:50%;">
-![](Fabio_theme/theme_images/avg_plot.png){width="30%"}
+![](additionalFiles/images/avg_plot.png){width="30%"}
 </div>
 
 ## GGplot Output
